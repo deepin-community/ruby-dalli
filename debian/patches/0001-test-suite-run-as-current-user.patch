@@ -1,0 +1,29 @@
+From: Antonio Terceiro <terceiro@debian.org>
+Date: Thu, 29 Oct 2015 19:12:58 -0200
+Subject: test suite: run as current user
+
+Because it's run under fakeroot, memcached thinks that it's being run as
+root, and refuses to do so.
+---
+ test/memcached_mock.rb | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/test/memcached_mock.rb b/test/memcached_mock.rb
+index 9991f5f..ccde308 100644
+--- a/test/memcached_mock.rb
++++ b/test/memcached_mock.rb
+@@ -1,4 +1,5 @@
+ # frozen_string_literal: true
++require "etc"
+ require "socket"
+ require "tempfile"
+ 
+@@ -159,7 +160,7 @@ module MemcachedMock
+         port = port.to_i
+       end
+ 
+-      cmd = "#{Memcached.path}memcached #{args} #{port_socket_arg} #{port}"
++      cmd = "#{Memcached.path}memcached -u #{Etc.getpwuid.name} #{args} #{port_socket_arg} #{port}"
+ 
+       $started[port] ||= begin
+         pid = IO.popen(cmd).pid

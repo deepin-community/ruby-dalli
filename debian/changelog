@@ -1,0 +1,98 @@
+ruby-dalli (2.7.11-2) UNRELEASED; urgency=medium
+
+  * update
+
+ -- Debian Ruby Team <pkg-ruby-extras-maintainers@lists.alioth.debian.org>  Thu, 21 Jul 2022 10:27:28 +0800
+
+ruby-dalli (2.7.11-2) unstable; urgency=medium
+
+  * Update version.
+  * skip ruby3.0 test.
+
+ -- wangxiangyu <wangxiangyu@uniontech.com>  Thu, 21 Jul 2022 10:25:37 +0200
+
+ruby-dalli (2.7.11-1) unstable; urgency=medium
+
+  * New upstream version 2.7.11
+    + fix support for rails 6 (Closes: #966384)
+  * Update team name
+  * Use gem install layout
+  * Update email address in Uploaders; dh-compat level to 13
+  * Use the ruby-tests.rake straight from gem2deb template
+  * Refresh patches
+    + drop no-rails-version.patch, not needed anymore
+    + drop Fix-memcached-compatibility.patch, applied upstream
+    + New patch to remove usage of bundler in tests
+    + Rework dalli-version.patch
+
+ -- Cédric Boutillier <boutil@debian.org>  Tue, 29 Sep 2020 22:05:37 +0200
+
+ruby-dalli (2.7.10-1) unstable; urgency=medium
+
+  * Team upload.
+  * Change rails to ruby-rails in build-depends
+  * New upstream version 2.7.10
+  * Refresh patches
+
+ -- Pirate Praveen <praveen@debian.org>  Mon, 27 Jul 2020 23:56:26 +0530
+
+ruby-dalli (2.7.9-2) unstable; urgency=medium
+
+  * Team upload.
+  * d/compat: Remove obsolete file.
+  * d/control: Add Rules-Requires-Root field.
+    (Build-Depends): Use debhelper-compat version 12.
+    (Standards-Version): Bump to 4.5.0.
+    (Homepage): Fix URL.
+    (Depends): Add ${ruby:Depends} and remove interpreter.
+  * d/copyright: Add Upstream-Contact field.
+    (Format): Fix insecure-copyright-format-uri.
+    (Source): Fix URL.
+    (Copyright): Add team.
+  * d/ruby-dalli.docs: Install Performance.md.
+  * d/ruby-tests.rake: Extend file list to run all tests.
+  * d/rules: Install upstream changelog.
+  * d/watch: Minor update.
+  * d/patches/0004-Fix-minitest-spec-tests.patch: Add new patch.
+    - Use pure minitest to avoid test errors.
+  * d/patches/0005-Fix-memcached-compatibility.patch: Add new patch.
+    - Fix test failure with current memcached.
+  * d/patches/series: Enable new patch.
+  * d/upstream/metadata: Add upstream metadata.
+
+ -- Daniel Leidert <dleidert@debian.org>  Thu, 26 Mar 2020 03:51:42 +0100
+
+ruby-dalli (2.7.9-1) unstable; urgency=medium
+
+  * Team upload
+
+  [ Antonio Terceiro ]
+  * Remove myself from Uploaders:
+
+  [ Andrew Lee (李健秋) ]
+  * debian/watch: fetch from upstream github instead.
+
+  [ Cédric Boutillier ]
+  * Run wrap-and-sort on packaging files
+  * New upstream version 2.7.9
+    + support for rails 5.2 (Closes: #918598)
+  * Bump debhelper compatibility level to 11
+  * Use salsa.debian.org in Vcs-* fields
+  * Bump Standards-Version to 4.3.0 (no changes needed)
+  * Refresh 0001-test-suite-run-as-current-user.patch
+  * Build-depend on ruby-appraisal, ruby-connection-pool, ruby-simplecov
+  * Add patch to relax minimal rails version in gemspec
+  * Add patch to correctly load dalli version in autopkgtest
+
+ -- Cédric Boutillier <boutil@debian.org>  Fri, 15 Feb 2019 18:50:59 +0100
+
+ruby-dalli (2.7.4-1) unstable; urgency=low
+
+  [ Cédric Boutillier ]
+  * Initial packaging
+
+  [ Antonio Terceiro ]
+  * debian/patches/0001-test-suite-run-as-current-user.patch: make memcache
+    run under fakeroot when running tests
+
+ -- Antonio Terceiro <terceiro@debian.org>  Thu, 29 Oct 2015 19:17:50 -0200

@@ -1,0 +1,29 @@
+From: =?utf-8?q?C=C3=A9dric_Boutillier?= <boutil@debian.org>
+Date: Tue, 29 Sep 2020 22:10:51 +0200
+Subject: use system dalli/version if lib/ not available
+
+Last-Update: 2019-02-15
+
+for autopkgtest purposes
+---
+ dalli.gemspec | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
+
+diff --git a/dalli.gemspec b/dalli.gemspec
+index ab838e9..89de8fc 100644
+--- a/dalli.gemspec
++++ b/dalli.gemspec
+@@ -1,4 +1,12 @@
+-require './lib/dalli/version'
++lib = File.expand_path('../lib/', __FILE__)
++$:.unshift lib unless $:.include?(lib)
++require 'dalli/version'
++
++#if File.exist?("./lib/dalli/version.rb")
++#  require './lib/dalli/version'
++#else
++#  require 'dalli/version'
++#end
+ 
+ Gem::Specification.new do |s|
+   s.name = "dalli"

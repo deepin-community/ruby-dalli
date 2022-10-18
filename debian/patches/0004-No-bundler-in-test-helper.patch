@@ -1,0 +1,19 @@
+From: =?utf-8?q?C=C3=A9dric_Boutillier?= <boutil@debian.org>
+Date: Tue, 29 Sep 2020 22:57:04 +0200
+Subject: No bundler in test helper
+
+---
+ test/helper.rb | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/test/helper.rb b/test/helper.rb
+index 453c3b2..723e0d4 100644
+--- a/test/helper.rb
++++ b/test/helper.rb
+@@ -1,6 +1,5 @@
+ # frozen_string_literal: true
+ $TESTING = true
+-require 'bundler/setup'
+ # require 'simplecov'
+ # SimpleCov.start
+ require 'minitest/pride' unless RUBY_ENGINE == 'rbx'

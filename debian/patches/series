@@ -1,0 +1,4 @@
+0001-test-suite-run-as-current-user.patch
+0003-dalli-version.patch
+0004-Fix-minitest-spec-tests.patch
+0004-No-bundler-in-test-helper.patch

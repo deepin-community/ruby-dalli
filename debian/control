@@ -1,0 +1,33 @@
+Source: ruby-dalli
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Team <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Cédric Boutillier <boutil@debian.org>
+Build-Depends: debhelper-compat (= 13),
+               gem2deb,
+               memcached,
+               ruby-rails,
+               ruby-appraisal,
+               ruby-connection-pool,
+               ruby-kgio,
+               ruby-mocha,
+               ruby-simplecov
+Standards-Version: 4.5.0
+Vcs-Git: https://salsa.debian.org/ruby-team/ruby-dalli.git
+Vcs-Browser: https://salsa.debian.org/ruby-team/ruby-dalli
+Homepage: https://github.com/petergoldstein/dalli
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-dalli
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${misc:Depends},
+         ${ruby:Depends},
+         ${shlibs:Depends}
+Suggests: ruby-kgio
+Description: memcached client library for Ruby
+ Dalli is a high performance pure Ruby client for accessing memcached servers.
+ It only works with memcached version 1.4 and higher, as it uses the binary
+ protocol only available starting with memcached 1.4.
